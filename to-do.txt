@@ -4,3 +4,4 @@
 + Button menu
 + Controllers
 + Game Logic System
++ Add JSLint

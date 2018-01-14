@@ -1,1 +1,1 @@
-var Blocks = Blocks();
+var blocks = Blocks();
