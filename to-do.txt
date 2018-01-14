@@ -1,0 +1,6 @@
++ Implement Score object as a Singleton
++ Block generator as a Fabric
++ Game UI
++ Button menu
++ Controllers
++ Game Logic System
