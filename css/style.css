@@ -1,0 +1,41 @@
+/* All Areas and Boxes */
+.game-area {
+  height: 80%;
+  width: 50%;
+  margin: auto;
+}
+.score-box {
+  height: 10%;
+  width: 40%;
+  border-style: solid;
+  margin: auto;
+  margin-bottom: 2%;
+}
+.under-score-area {
+  height: 85%;
+  width: 100%;
+}
+.action-box {
+  height: 100%;
+  width: 68%;
+  display: inline-block;
+  border-style: solid;
+}
+.side-area {
+  height: 100%;
+  width: 28%;
+  display: inline-block;
+}
+.hint-box {
+  height: 30%;
+  width: 100%;
+  border-style: solid;
+  margin-bottom: 10%;
+}
+.buttons-box {
+  height: 60%;
+  width: 100%;
+  border-style: solid;
+}
+
+/* All Blocks */

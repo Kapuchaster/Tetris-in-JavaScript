@@ -3,7 +3,7 @@
 'use strict'
 
 function Score() {
-  var instance;
+  let instance;
 
   Score = function Score() {
     return instance;
@@ -13,8 +13,8 @@ function Score() {
   instance = new Score();
   instance.constructor = Score;
 
-  var score = 0;
-  var bestScore = 0;
+  let score = 0;
+  let bestScore = 0;
 
   instance.getScore = function () {
     return score;
