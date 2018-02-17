@@ -3,39 +3,57 @@
   height: 80%;
   width: 50%;
   margin: auto;
+  border-style: solid;
+}
+.left-area {
+  height: 98%;
+  width: 58%;
+  display: inline-block;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+.right-area {
+  height: 98%;
+  width: 37%;
+  display: inline-table;
+  margin-top: 1%;
+  margin-left: 1%;
 }
 .score-box {
-  height: 10%;
-  width: 40%;
+  height: 9%;
+  width: 60%;
   border-style: solid;
   margin: auto;
+  margin-top: 2%;
   margin-bottom: 2%;
 }
-.under-score-area {
-  height: 85%;
-  width: 100%;
-}
 .action-box {
-  height: 100%;
-  width: 68%;
-  display: inline-block;
-  border-style: solid;
-}
-.side-area {
-  height: 100%;
-  width: 28%;
-  display: inline-block;
+ height: 88%;
+ width: 96%;
+ border-style: solid;
+ margin: auto;
 }
 .hint-box {
   height: 30%;
   width: 100%;
   border-style: solid;
-  margin-bottom: 10%;
+  margin-top: 41%;
 }
 .buttons-box {
-  height: 60%;
+  height: 30%;
   width: 100%;
   border-style: solid;
+  margin-top: 19%;
+}
+.info {
+  height: 19%;
+  width: 100%;
+  border-style: solid;
+  margin-top: 16%;
 }
 
 /* All Blocks */
+
+.block {
+
+}
