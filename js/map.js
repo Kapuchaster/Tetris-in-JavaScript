@@ -17,7 +17,11 @@ var map = (function () {
   function getMap() {return mapFileds;}
 
   function addToMap(x, y, block) {
-    if (!Array.isArray(block)) {throw "block is not an array";}
+    for (let w = x; w < block.matrix[0].length + x; w++) {
+      for (let h = y; h < block.matrix.length +y ; h++) {
+        mapFileds[h][w] = block.matrix[w-x][h-y];
+      }
+    }
   }
 
   function checkCollision(x, y, block) {
