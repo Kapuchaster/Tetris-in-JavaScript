@@ -3,7 +3,6 @@
 var map = (function () {
   let mapFileds = [];
 
-
   (function createAndInitMap () {
     for (let h = 0; h < 16; h++) {
       let tmpRow = [];
@@ -18,8 +17,8 @@ var map = (function () {
 
   function addToMap(x, y, block) {
     for (let w = x; w < block.matrix[0].length + x; w++) {
-      for (let h = y; h < block.matrix.length +y ; h++) {
-        mapFileds[h][w] = block.matrix[w-x][h-y];
+      for (let h = y; h < block.matrix.length + y; h++) {
+        mapFileds[h][w] = block.matrix[h-y][w-x];
       }
     }
   }
