@@ -8,7 +8,8 @@ var blockFactory = (function () {
       let randBlock = getBlock (randSymbol);
       let tile = {
         symbol: randSymbol,
-        matrix: randBlock
+        matrix: randBlock,
+        position: {y: 0, x: 0}
       }
       return tile;
 

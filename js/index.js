@@ -7,22 +7,39 @@
       // map, blockFactory.
 
       let testTile = blockFactory.createNewBlock();
-      map.addToMap(3,3, testTile);
+      // map.addToMap(testTile);
 
+      setInterval(function(){
+        mapToRender (map.prepareAndGetTempMoveMap(testTile));
+        blockService.moveDown(testTile);
+      },1000);
 
-
+      document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+        if (keyName === 'ArrowLeft') {
+          blockService.moveLeft(testTile);
+          mapToRender (map.prepareAndGetTempMoveMap(testTile));
+        }
+        if (keyName === 'ArrowRight') {
+          blockService.moveRight(testTile);
+          mapToRender (map.prepareAndGetTempMoveMap(testTile));
+        }
+      });
 //--------------RENDER TEST-----------------
 
-  let htmlMap = document.getElementById("game-box");
-  for (let h = 0; h < map.getMap().length; h++) {
-    for (let w = 0; w < map.getMap()[0].length; w++) {
-      let div = document.createElement("div");
-      div.classList.add("block");
-      div.style.display = "inline-block";
-      if (map.getMap()[h][w]) {
-        div.style.backgroundColor = "red";
+  function mapToRender(tempMap) {
+    let htmlMap = document.getElementById("game-box");
+    htmlMap.innerText = "";
+    for (let h = 0; h < tempMap.length; h++) {
+      for (let w = 0; w < tempMap[0].length; w++) {
+        let div = document.createElement("div");
+        div.classList.add("block");
+        div.style.display = "inline-block";
+        if (tempMap[h][w]) {
+          div.style.backgroundColor = "red";
+        }
+        htmlMap.appendChild(div);
       }
-      htmlMap.appendChild(div);
     }
   }
 

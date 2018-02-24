@@ -15,12 +15,29 @@ var map = (function () {
 
   function getMap() {return mapFileds;}
 
-  function addToMap(x, y, block) {
+  function addToMap(block) {
+    let x = block.position.x;
+    let y = block.position.y;
     for (let w = x; w < block.matrix[0].length + x; w++) {
       for (let h = y; h < block.matrix.length + y; h++) {
         mapFileds[h][w] = block.matrix[h-y][w-x];
       }
     }
+  }
+
+  function prepareAndGetTempMoveMap(block) {
+    let tempMoveMap = mapFileds.map(function(arr) {
+      return arr.slice();
+    });
+    let x = block.position.x;
+    let y = block.position.y;
+
+    for (let w = x; w < block.matrix[0].length + x; w++) {
+      for (let h = y; h < block.matrix.length + y; h++) {
+        tempMoveMap[h][w] = block.matrix[h-y][w-x];
+      }
+    }
+    return tempMoveMap;
   }
 
   function checkCollision(x, y, block) {
@@ -30,7 +47,8 @@ var map = (function () {
   let mapObject = {
     getMap: getMap,
     addToMap: addToMap,
-    checkCollision: checkCollision
+    checkCollision: checkCollision,
+    prepareAndGetTempMoveMap: prepareAndGetTempMoveMap
   };
 
   return mapObject;
