@@ -2,18 +2,20 @@
 
 var blockService = (function () {
 
-  function moveDown(block) {
-    block.position.y++;
+  function moveDown(block) { // + height of Block
+    if ((block.position.y + block.matrix.length) < 16) {
+      block.position.y++;
+    }
   }
 
   function moveLeft(block) {
-    if (block.position.x > 0) { // + height of Block
+    if (block.position.x > 0) {
       block.position.x--;
     }
   }
 
   function moveRight(block) {
-    if (block.position.x < 9) { // + width of Block
+    if ((block.position.x + + block.matrix[0].length) < 10) {
       block.position.x++;
     }
   }

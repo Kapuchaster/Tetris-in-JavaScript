@@ -15,7 +15,7 @@
       },1000);
 
       document.addEventListener('keydown', (event) => {
-        const keyName = event.key;
+        let keyName = event.key;
         if (keyName === 'ArrowLeft') {
           blockService.moveLeft(testTile);
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
