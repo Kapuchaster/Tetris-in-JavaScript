@@ -9,7 +9,7 @@ var blockFactory = (function () {
       let tile = {
         symbol: randSymbol,
         matrix: randBlock,
-        position: {y: 0, x: 0}
+        position: {y: 0, x: 0, r: 0}
       }
       return tile;
 

@@ -24,6 +24,10 @@
           blockService.moveRight(testTile);
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
         }
+        if (keyName === 'ArrowUp') {
+          blockService.rotate(testTile);
+          mapToRender (map.prepareAndGetTempMoveMap(testTile));
+        }
       });
 //--------------RENDER TEST-----------------
 
