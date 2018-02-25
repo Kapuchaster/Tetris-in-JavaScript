@@ -40,14 +40,24 @@ var map = (function () {
     return tempMoveMap;
   }
 
-  function checkCollision(x, y, block) {
+  function checkNextMoveCollision(block) {
+    let x = block.position.x;
+    let y = block.position.y + 1; // +1 because of a next move
 
+    for (let w = x; w < block.matrix[0].length + x; w++) {
+      for (let h = y; h < block.matrix.length + y; h++) {
+        if (mapFileds[h][w] && block.matrix[h-y][w-x]) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   let mapObject = {
     getMap: getMap,
     addToMap: addToMap,
-    checkCollision: checkCollision,
+    checkNextMoveCollision: checkNextMoveCollision,
     prepareAndGetTempMoveMap: prepareAndGetTempMoveMap
   };
 

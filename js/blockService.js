@@ -2,10 +2,18 @@
 
 var blockService = (function () {
 
-  function moveDown(block) {
-    if ((block.position.y + block.matrix.length) < 16) {
-      block.position.y++;
+  function moveDown(block, condition) {
+    if ((block.position.y + block.matrix.length) >= 16) {
+      return false;
     }
+
+    if (typeof condition === "function") {
+      if (condition(block))
+        return false;
+    }
+
+    block.position.y++;
+    return true;
   }
 
   function moveLeft(block) {

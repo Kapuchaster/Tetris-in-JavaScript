@@ -11,8 +11,11 @@
 
       setInterval(function(){
         mapToRender (map.prepareAndGetTempMoveMap(testTile));
-        blockService.moveDown(testTile);
-      },1000);
+        if (!blockService.moveDown(testTile, map.checkNextMoveCollision)) {
+          map.addToMap(testTile);
+          testTile = blockFactory.createNewBlock();
+        };
+      }, 1000);
 
       document.addEventListener('keydown', (event) => {
         let keyName = event.key;
@@ -29,7 +32,10 @@
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
         }
         if (keyName === 'ArrowDown') {
-          blockService.moveDown(testTile);
+          if (!blockService.moveDown(testTile, map.checkNextMoveCollision)) {
+            map.addToMap(testTile);
+            testTile = blockFactory.createNewBlock();
+          };
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
         }
       });
