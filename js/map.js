@@ -20,7 +20,9 @@ var map = (function () {
     let y = block.position.y;
     for (let w = x; w < block.matrix[0].length + x; w++) {
       for (let h = y; h < block.matrix.length + y; h++) {
-        mapFileds[h][w] = block.matrix[h-y][w-x];
+        if (block.matrix[h-y][w-x]) {
+          mapFileds[h][w] = block.matrix[h-y][w-x];
+        }
       }
     }
   }
@@ -34,7 +36,9 @@ var map = (function () {
 
     for (let w = x; w < block.matrix[0].length + x; w++) {
       for (let h = y; h < block.matrix.length + y; h++) {
-        tempMoveMap[h][w] = block.matrix[h-y][w-x];
+        if (block.matrix[h-y][w-x]) {
+          tempMoveMap[h][w] = block.matrix[h-y][w-x];
+        }
       }
     }
     return tempMoveMap;
