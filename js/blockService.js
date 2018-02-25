@@ -2,7 +2,7 @@
 
 var blockService = (function () {
 
-  function moveDown(block) { // + height of Block
+  function moveDown(block) {
     if ((block.position.y + block.matrix.length) < 16) {
       block.position.y++;
     }
@@ -46,8 +46,6 @@ var blockService = (function () {
       case 3: {block.position.r=0; block.matrix=[[0,1],[0,1],[1,1]]; break;}
     }
   }
-
-  let Z = [[1,1,0],[0,1,1]];
 
   function rotateZ(block) {
     switch (block.position.r) {
