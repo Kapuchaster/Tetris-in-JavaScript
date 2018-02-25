@@ -4,16 +4,19 @@ var blockFactory = (function () {
 
   function createNewBlock (blockParams) {
       let symbolArray = ['L', 'LO', 'O', 'Z'];
-      let randSymbol = getRandSymbol (symbolArray);
+      let colorArray = ['red', 'green', 'yellow', 'blue'];
+      let randSymbol = getRandFromArray (symbolArray);
       let randBlock = getBlock (randSymbol);
+      let randColor = getRandFromArray (colorArray);
       let tile = {
         symbol: randSymbol,
         matrix: randBlock,
+        color: randColor,
         position: {y: 0, x: 0, r: 0}
       }
       return tile;
 
-      function getRandSymbol (symbolArray) {
+      function getRandFromArray (symbolArray) {
         let randIndex = Math.floor((Math.random() * symbolArray.length));
         return symbolArray[randIndex];
       }

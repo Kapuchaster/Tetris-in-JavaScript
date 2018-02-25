@@ -33,7 +33,8 @@
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
         }
       });
-//--------------RENDER TEST-----------------
+
+//--------------RENDER Map-----------------
 
   function mapToRender(tempMap) {
     let htmlMap = document.getElementById("game-box");
@@ -50,8 +51,6 @@
       }
     }
   }
-
-//----------------Test End------------------
 
     });
   }
