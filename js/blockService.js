@@ -33,7 +33,15 @@ var blockService = (function () {
       case 'L': {rotateL(block); break;}
       case 'LO': {rotateLO(block); break;}
       case 'Z': {rotateZ(block); break;}
+      case 'I': {rotateI(block); break;}
       case 'O': {break;}
+    }
+  }
+
+  function rotateI(block) {
+    switch (block.position.r) {
+      case 0: {block.position.r=1; block.matrix=[[1],[1],[1],[1]]; break;}
+      case 1: {block.position.r=0; block.matrix=[[1,1,1,1]]; break;}
     }
   }
 

@@ -3,7 +3,7 @@
 var blockFactory = (function () {
 
   function createNewBlock (blockParams) {
-      let symbolArray = ['L', 'LO', 'O', 'Z'];
+      let symbolArray = ['L', 'LO', 'O', 'Z', 'I'];
       let colorArray = ['red', 'green', 'yellow', 'blue'];
       let randSymbol = getRandFromArray (symbolArray);
       let randBlock = getBlock (randSymbol);
@@ -26,12 +26,14 @@ var blockFactory = (function () {
         let LO = [[0,1],[0,1],[1,1]];
         let O = [[1,1],[1,1]];
         let Z = [[1,1,0],[0,1,1]];
+        let I = [[1,1,1,1]];
 
         switch (symbol) {
           case 'L': return L;
           case 'LO': return LO;
           case 'O': return O;
           case 'Z': return Z;
+          case 'I': return I;
         }
       }
   }
