@@ -28,6 +28,10 @@
           blockService.rotate(testTile);
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
         }
+        if (keyName === 'ArrowDown') {
+          blockService.moveDown(testTile);
+          mapToRender (map.prepareAndGetTempMoveMap(testTile));
+        }
       });
 //--------------RENDER TEST-----------------
 
