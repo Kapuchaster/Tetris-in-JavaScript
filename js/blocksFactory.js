@@ -3,7 +3,7 @@
 var blockFactory = (function () {
 
   function createNewBlock (blockParams) {
-      let symbolArray = ['L', 'LO', 'O'];
+      let symbolArray = ['L', 'LO', 'O', 'Z'];
       let randSymbol = getRandSymbol (symbolArray);
       let randBlock = getBlock (randSymbol);
       let tile = {
@@ -22,11 +22,13 @@ var blockFactory = (function () {
         let L = [[1,0],[1,0],[1,1]];
         let LO = [[0,1],[0,1],[1,1]];
         let O = [[1,1],[1,1]];
+        let Z = [[1,1,0],[0,1,1]];
 
         switch (symbol) {
           case 'L': return L;
           case 'LO': return LO;
           case 'O': return O;
+          case 'Z': return Z;
         }
       }
   }
