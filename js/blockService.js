@@ -8,7 +8,7 @@ var blockService = (function () {
     }
 
     if (typeof condition === "function") {
-      if (condition(block))
+      if (condition(block, 'down'))
         return false;
     }
 
@@ -16,16 +16,32 @@ var blockService = (function () {
     return true;
   }
 
-  function moveLeft(block) {
-    if (block.position.x > 0) {
-      block.position.x--;
+  function moveLeft(block, condition) {
+    if (block.position.x <= 0) {
+      return false;
     }
+
+    if (typeof condition === "function") {
+      if (condition(block, 'left'))
+        return false;
+    }
+
+    block.position.x--;
+    return true;
   }
 
-  function moveRight(block) {
-    if ((block.position.x + block.matrix[0].length) < 10) {
-      block.position.x++;
+  function moveRight(block, condition) {
+    if ((block.position.x + block.matrix[0].length) >= 10) {
+      return false;
     }
+
+    if (typeof condition === "function") {
+      if (condition(block, 'right'))
+        return false;
+    }
+
+    block.position.x++;
+    return true;
   }
 
   function rotate(block) {

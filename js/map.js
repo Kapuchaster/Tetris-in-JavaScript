@@ -44,9 +44,16 @@ var map = (function () {
     return tempMoveMap;
   }
 
-  function checkNextMoveCollision(block) {
+  function checkNextMoveCollision(block, dir) {
     let x = block.position.x;
-    let y = block.position.y + 1; // +1 because of a next move
+    let y = block.position.y;
+
+    switch (dir) {
+      case 'left': {x--; break;}
+      case 'right': {x++; break;}
+      case 'down': {y++; break;}
+      default: {y++;}
+    }
 
     for (let w = x; w < block.matrix[0].length + x; w++) {
       for (let h = y; h < block.matrix.length + y; h++) {

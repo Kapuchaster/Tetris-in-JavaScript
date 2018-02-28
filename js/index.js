@@ -20,12 +20,14 @@
       document.addEventListener('keydown', (event) => {
         let keyName = event.key;
         if (keyName === 'ArrowLeft') {
-          blockService.moveLeft(testTile);
-          mapToRender (map.prepareAndGetTempMoveMap(testTile));
+          if (blockService.moveLeft(testTile, map.checkNextMoveCollision)) {
+            mapToRender (map.prepareAndGetTempMoveMap(testTile));
+          }
         }
         if (keyName === 'ArrowRight') {
-          blockService.moveRight(testTile);
-          mapToRender (map.prepareAndGetTempMoveMap(testTile));
+          if (blockService.moveRight(testTile, map.checkNextMoveCollision)) {
+            mapToRender (map.prepareAndGetTempMoveMap(testTile));
+          }
         }
         if (keyName === 'ArrowUp') {
           blockService.rotate(testTile);
