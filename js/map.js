@@ -52,7 +52,7 @@ var map = (function () {
       case 'left': {x--; break;}
       case 'right': {x++; break;}
       case 'down': {y++; break;}
-      default: {y++;}
+      case 'rot': {break;}
     }
 
     for (let w = x; w < block.matrix[0].length + x; w++) {

@@ -10,11 +10,12 @@
       // map.addToMap(testTile);
 
       setInterval(function(){
-        mapToRender (map.prepareAndGetTempMoveMap(testTile));
+
         if (!blockService.moveDown(testTile, map.checkNextMoveCollision)) {
           map.addToMap(testTile);
           testTile = blockFactory.createNewBlock();
         };
+        mapToRender (map.prepareAndGetTempMoveMap(testTile));
       }, 1000);
 
       document.addEventListener('keydown', (event) => {
@@ -30,7 +31,7 @@
           }
         }
         if (keyName === 'ArrowUp') {
-          blockService.rotate(testTile);
+          blockService.rotate(testTile, map.checkNextMoveCollision)
           mapToRender (map.prepareAndGetTempMoveMap(testTile));
         }
         if (keyName === 'ArrowDown') {

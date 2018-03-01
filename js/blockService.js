@@ -44,24 +44,42 @@ var blockService = (function () {
     return true;
   }
 
-  function rotate(block) {
+  function rotate(block, condition) {
     switch (block.symbol) {
-      case 'L': {rotateL(block); break;}
-      case 'LO': {rotateLO(block); break;}
-      case 'Z': {rotateZ(block); break;}
-      case 'I': {rotateI(block); break;}
+      case 'L': {rotateL(block, condition); break;}
+      case 'LO': {rotateLO(block, condition); break;}
+      case 'Z': {rotateZ(block, condition); break;}
+      case 'I': {rotateI(block, condition); break;}
       case 'O': {break;}
     }
   }
 
-  function rotateI(block) {
+  function rotateI(block, condition) {
+    let tempRotTile = {};
+    tempRotTile.position = {y: block.position.y, x: block.position.x, r: block.position.r};
+    rotateIHelper(tempRotTile);
+    if (!condition(tempRotTile, 'rot')) {
+      rotateIHelper(block);
+    }
+  }
+
+  function rotateIHelper(block) {
     switch (block.position.r) {
       case 0: {block.position.r=1; block.matrix=[[1],[1],[1],[1]]; break;}
       case 1: {block.position.r=0; block.matrix=[[1,1,1,1]]; break;}
     }
   }
 
-  function rotateL(block) {
+  function rotateL(block, condition) {
+    let tempRotTile = {};
+    tempRotTile.position = {y: block.position.y, x: block.position.x, r: block.position.r};
+    rotateLHelper(tempRotTile);
+    if (!condition(tempRotTile, 'rot')) {
+      rotateLHelper(block);
+    }
+  }
+
+  function rotateLHelper(block) {
     switch (block.position.r) {
       case 0: {block.position.r=1; block.matrix=[[1,1,1],[1,0,0]]; break;}
       case 1: {block.position.r=2; block.matrix=[[1,1],[0,1],[0,1]]; break;}
@@ -70,7 +88,16 @@ var blockService = (function () {
     }
   }
 
-  function rotateLO(block) {
+  function rotateLO(block, condition) {
+    let tempRotTile = {};
+    tempRotTile.position = {y: block.position.y, x: block.position.x, r: block.position.r};
+    rotateLOHelper(tempRotTile);
+    if (!condition(tempRotTile, 'rot')) {
+      rotateLOHelper(block);
+    }
+  }
+
+  function rotateLOHelper(block) {
     switch (block.position.r) {
       case 0: {block.position.r=1; block.matrix=[[1,0,0],[1,1,1]]; break;}
       case 1: {block.position.r=2; block.matrix=[[1,1],[1,0],[1,0]]; break;}
@@ -79,7 +106,16 @@ var blockService = (function () {
     }
   }
 
-  function rotateZ(block) {
+  function rotateZ(block, condition) {
+    let tempRotTile = {};
+    tempRotTile.position = {y: block.position.y, x: block.position.x, r: block.position.r};
+    rotateZHelper(tempRotTile);
+    if (!condition(tempRotTile, 'rot')) {
+      rotateZHelper(block);
+    }
+  }
+
+  function rotateZHelper(block) {
     switch (block.position.r) {
       case 0: {block.position.r=1; block.matrix=[[0,1],[1,1],[1,0]]; break;}
       case 1: {block.position.r=0; block.matrix=[[1,1,0],[0,1,1]]; break;}
