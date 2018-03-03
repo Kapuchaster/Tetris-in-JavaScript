@@ -7,12 +7,12 @@
       // map, blockFactory.
 
       let testTile = blockFactory.createNewBlock();
-      // map.addToMap(testTile);
 
       setInterval(function(){
 
         if (!blockService.moveDown(testTile, map.checkNextMoveCollision)) {
           map.addToMap(testTile);
+          map.removeDoneLines();
           testTile = blockFactory.createNewBlock();
         };
         mapToRender (map.prepareAndGetTempMoveMap(testTile));
@@ -37,6 +37,7 @@
         if (keyName === 'ArrowDown') {
           if (!blockService.moveDown(testTile, map.checkNextMoveCollision)) {
             map.addToMap(testTile);
+            map.removeDoneLines();
             testTile = blockFactory.createNewBlock();
           };
           mapToRender (map.prepareAndGetTempMoveMap(testTile));

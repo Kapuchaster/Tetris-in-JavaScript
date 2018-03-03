@@ -65,11 +65,42 @@ var map = (function () {
     return false;
   }
 
+  function removeDoneLines(callback) {
+    let lineLen = 0;
+    let linesToRemove = [];
+    for (let h = 0; h < mapFileds.length; h++) {
+      lineLen = 0;
+      for (let w = 0; w < mapFileds[0].length; w++) {
+        if (mapFileds[h][w] === 1) {
+          lineLen++;
+        }
+      }
+      if (lineLen === 10) {
+        linesToRemove.push(h);
+      }
+    }
+
+    if (linesToRemove.length) {
+      let tempNewLine = [];
+
+      for (let i = 0; i < 10; i++) {
+          tempNewLine.push(0);
+      }
+
+      for (let i = 0; i < linesToRemove.length; i++) {
+        mapFileds.splice(linesToRemove[i], 1);
+        mapFileds.unshift(tempNewLine);
+      }
+    }
+  }
+
   let mapObject = {
     getMap: getMap,
     addToMap: addToMap,
     checkNextMoveCollision: checkNextMoveCollision,
-    prepareAndGetTempMoveMap: prepareAndGetTempMoveMap
+    prepareAndGetTempMoveMap: prepareAndGetTempMoveMap,
+    removeDoneLines: removeDoneLines
+
   };
 
   return mapObject;
