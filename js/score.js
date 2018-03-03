@@ -20,7 +20,7 @@ function Score() {
     return score;
   }
   instance.addToScore = function (points) {
-    points ? points : 100;
+    points = points ? points : 100;
     score += points;
   }
   instance.setScore = function (newScore) {
