@@ -90,6 +90,9 @@ var map = (function () {
       for (let i = 0; i < linesToRemove.length; i++) {
         mapFileds.splice(linesToRemove[i], 1);
         mapFileds.unshift(tempNewLine);
+        if (typeof callback === "function") {
+          callback();
+        }
       }
     }
   }
@@ -100,7 +103,6 @@ var map = (function () {
     checkNextMoveCollision: checkNextMoveCollision,
     prepareAndGetTempMoveMap: prepareAndGetTempMoveMap,
     removeDoneLines: removeDoneLines
-
   };
 
   return mapObject;
